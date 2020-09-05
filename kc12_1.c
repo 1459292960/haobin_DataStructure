@@ -1,3 +1,11 @@
+/* @date: 2020-09-04 21:18:59
+@功能:
+    完成一个顺序表(连续存储数组)的基本功能：生成（初始化）、遍历、判断是否为空、判断是否为满、追加、插入、删除
+@目的:
+    了解顺序表的底层实现
+*/
+
+
 # include <stdio.h> // 标准输入输出函数 
 # include <malloc.h> // malloc函数
 #include <stdlib.h> // exit()方法
@@ -10,13 +18,16 @@ struct Arr
     int cnt; // 有效元素的个数
     int * pBase; //存放数组第一个字节的地址 
 };
+// 函数前置申明
 void init_arr(struct Arr *,int );
 void show_arr(struct Arr *);
 bool  is_empty(struct Arr *);
 bool is_full(struct Arr *);
 bool append_arr(struct Arr *,int );
-bool delete_arr(struct Arr *,int ,int *);
-bool insert_arr(struct Arr *,int ,int);
+bool delete_arr(struct Arr *,int pos,int * pval);
+bool insert_arr(struct Arr * pArr,int pos,int val); // 规定pos的值从1开始，
+                                                                                                // 数组元素下标（从0开始）和第几个元素（从1开始）均可以指代位置，
+                                                                                                // 具体使用哪一个就要在技术文档中说明
 void sort_arr(struct Arr *);
 
 int main (void)
@@ -29,13 +40,16 @@ int main (void)
     append_arr(&arr,-13);
     append_arr(&arr,4);
     append_arr(&arr,5);
+    append_arr(&arr,6);
+    append_arr(&arr,7);
+    append_arr(&arr,8);
     show_arr(&arr);
-    delete_arr(&arr,5,&val);
-    show_arr(&arr);
-    insert_arr(&arr,4,99);
-    show_arr(&arr);
-    sort_arr(&arr);
-     show_arr(&arr);
+    // delete_arr(&arr,5,&val);
+    // show_arr(&arr);
+    // insert_arr(&arr,4,99);
+    // show_arr(&arr);
+    // sort_arr(&arr);
+    //  show_arr(&arr);
     return 0;
 }
 // 冒泡法排序
@@ -138,7 +152,7 @@ bool append_arr(struct Arr * pArr,int  val)
 {   
     if (is_full(pArr))
     {
-        printf("列表已满，无法追加！\n");
+        printf("列表已满，追加失败！\n");
         return false;
     }  
     else
