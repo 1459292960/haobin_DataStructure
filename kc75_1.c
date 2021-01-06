@@ -117,10 +117,9 @@ void PostTraverse (PBTNODE pT)
 /*@在VScode中的输出：
 ---------------------------------
 ABCDE
-BADEC
+BADEC  
 BEDCA
 ---------------------------------
 @总结：
 
 */
-

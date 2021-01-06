@@ -2,7 +2,7 @@
 @功能:
 
 @目的:
-熟悉结构体使用
+    熟悉结构体使用
 
 */
 
@@ -15,7 +15,7 @@ struct  Student
     int sid;
     char name[100];
     int age;
-};
+}; // 注意结尾有分号;
 
 int main (void)
 {
