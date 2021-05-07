@@ -11,7 +11,7 @@
 #include <stdlib.h> // exit()方法
 # include <stdbool.h> // 包含bool类型：true\ false等
 
-// 定义了一个结构体符合数据类型
+// 定义了一个结构体复合数据类型
 struct Arr
 {
     int len; // 数组的长度
@@ -26,10 +26,10 @@ bool is_full(struct Arr *);
 bool append_arr(struct Arr *,int );
 bool delete_arr(struct Arr *,int pos,int * pval);
 bool insert_arr(struct Arr * pArr,int pos,int val); // 规定pos的值从1开始，
-                                                                                                // 数组元素下标（从0开始）和第几个元素（从1开始）均可以指代位置，
-                                                                                                // 具体使用哪一个就要在技术文档中说明
+                                                    // 数组元素下标（从0开始）和第几个元素（从1开始）均可以指代位置，
+                                                    // 具体使用哪一个就要在技术文档中说明
 void sort_arr(struct Arr *);
-
+void inversion_arr(struct Arr * pArr);
 int main (void)
 {   int val;
     struct Arr arr;// 定义了一个结构体变量
@@ -50,6 +50,9 @@ int main (void)
     // show_arr(&arr);
     // sort_arr(&arr);
     //  show_arr(&arr);
+    inversion_arr(&arr);
+    printf("倒置之后的数组为：\n");
+    show_arr(&arr);
     return 0;
 }
 // 冒泡法排序
@@ -131,9 +134,13 @@ void show_arr(struct Arr * pArr)
 
     else
     {
-        for (i=0;i<pArr->cnt;i++)
-            printf("%d ",pArr->pBase[i]);
-            printf("\n");
+        for (i=0;i<pArr->cnt;i++){
+            i && printf(" "); // 实现以空格隔开各个数字，且最后不输出空格
+            printf("%d",pArr->pBase[i]);
+
+        }
+            
+        printf("\n");
     }
     
     return ;
@@ -152,7 +159,7 @@ bool append_arr(struct Arr * pArr,int  val)
 {   
     if (is_full(pArr))
     {
-        printf("列表已满，追加失败！\n");
+        printf("列表已满，%d 追加失败！\n",val);
         return false;
     }  
     else
@@ -162,4 +169,20 @@ bool append_arr(struct Arr * pArr,int  val)
     }
     (pArr->cnt)++; //有效数据加1
     return true;
+}
+
+void inversion_arr(struct Arr * pArr){
+    int i = 0;
+    int j = pArr->cnt - 1;
+    int t;
+    while(i < j){
+        t = pArr->pBase[i];
+        pArr->pBase[i] = pArr->pBase[j];
+        pArr->pBase[j] = t;
+        ++i;
+        --j;
+
+    }
+
+    return ;
 }

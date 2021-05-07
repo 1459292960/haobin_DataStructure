@@ -12,7 +12,7 @@
 struct Student 
 {
     int age;
-    char name[100];
+    char name[101];
 };
 struct Student * CreatList(void);
 void TraverseList(struct Student * );
@@ -28,6 +28,7 @@ int main (void)
 }
 struct Student * CreatList(void)
 {
+    printf("%ld\n",sizeof(struct Student)); // 思考这里为什么是１０８个
     struct Student *p = (struct Student *)malloc(sizeof(struct Student));
     p->age=10;
     strcpy(p->name,"lisi");
