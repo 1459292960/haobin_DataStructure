@@ -16,7 +16,7 @@ int main (void)
     int i;
     int a[5]={-9,3,-55,100,2};
     QuickSort(a,0,4);
-    for (i=0;i<5;i++)
+    for (i = 0; i < 5; i++)
         printf("%d ",a[i]);
     printf("\n");
     return 0;

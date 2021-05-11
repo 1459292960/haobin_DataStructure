@@ -21,7 +21,7 @@ int main (void)
 void f(int ** q) // int ** 类型只能存放 int *类型变量的地址
 {
     *q=(int *)0xFFFFFFFFFFFFFFFF; // p指向了内存编号为0xFFFFFFFFFFFFFFFF的单元，
-                                                                    // 这样做是很危险的，因为该内存并没有分配给该程序
+                                   // 这样做是很危险的，因为该内存并没有分配给该程序
     return ;
 }
 

@@ -22,7 +22,7 @@ int main (void)
     struct Student st;
     InputStudent(&st);
     OutputStudent(&st); // 只需要发送st的第一个字节的地址,在我的64位电脑中发送了8个字节，
-                                                // 节省时间、内存
+                        // 节省时间、内存
     return 0;
 }
 void InputStudent(struct Student * p)
@@ -39,7 +39,7 @@ void InputStudent(struct Student * p)
 void OutputStudent(struct Student * p)
 {
     printf("sid = %d\n",p->sid);
-    printf("sid = %s\n",p->name);
-    printf("sid = %d\n",p->age);
+    printf("name = %s\n",p->name);
+    printf("age = %d\n",p->age);
     return ;
 }
