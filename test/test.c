@@ -1,3 +1,11 @@
+/* @date: 2021-05-15 21:52:07
+    测试GPS接收程序中字符串拷贝
+@功能:
+
+@目的:
+
+*/
+
 
 #include<stdio.h>
 #include<assert.h>
