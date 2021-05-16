@@ -19,12 +19,12 @@ PNODE creatList(void){
     int len = 0;
     int val;
 
-    PNODE pHead = (PNODE)malloc(sizeof(NODE)); // 创建一个头节点
+    PNODE pHead = (PNODE)malloc(sizeof(NODE)); // 创建一个头指针，指向头节点
     if(pHead == NULL){
         printf("creat list failed!");
         exit(-1);
     }
-    PNODE pTail = (PNODE)malloc(sizeof(NODE));
+    PNODE pTail = (PNODE)malloc(sizeof(NODE)); // 创建一个尾指针，指向尾节点
     pTail = pHead;
     pTail->pNext = NULL;
 
@@ -39,7 +39,7 @@ PNODE creatList(void){
         printf("请输入第%d个节点的值：",i+1);
         scanf("%d",&val);
         pNew->num = val;
-        pTail->pNext = pNew;
+        pTail->pNext = pNew; // 新创建的节点挂在尾节点后面
         pNew->pNext = NULL;
         pTail = pNew;        
 
